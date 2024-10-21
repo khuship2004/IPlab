@@ -1,0 +1,91 @@
+/* Typography with Downloaded Font */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(245, 245, 245); /* Light background using RGB */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1.title {
+    font-size: 2.5rem;
+    color: #333333; /* HEX code for dark text */
+}
+
+p.subtitle {
+    font-size: 1.2rem;
+    color: hsl(210, 50%, 40%); /* HSV to HSL for cool blue shade */
+    margin-top: -10px;
+}
+
+/* Box with Color Modes and Hover Effect */
+.box-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.box {
+    background-color: rgb(255, 100, 100); /* Soft red using RGB */
+    color: #ffffff; /* White text using HEX */
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+    cursor: pointer;
+}
+
+.box:hover {
+    background-color: #008080; /* Teal using HEX */
+    transform: scale(1.1); /* Transform on hover */
+}
+
+/* Translate Box */
+.translate-box {
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px;
+    margin: 50px auto; /* Centered horizontally */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+/* When hovering over the box, it will translate */
+.translate-box:hover {
+    transform: translate(100px, 50px); /* Move 100px right and 50px down */
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.intro {
+    animation: slideIn 1s ease-out; /* Slide-in animation for intro paragraph */
+}
+
+/* Translation Text */
+.translate {
+    color: rgb(34, 139, 34); /* Forest green using RGB */
+    font-weight: 700;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: #333; /* Dark background using HEX */
+    color: #fff; /* White text using HEX */
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

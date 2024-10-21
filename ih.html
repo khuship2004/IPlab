@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run JavaScript</title>
+</head>
+<body>
+    <h1>Check the console for output</h1>
+    <script>
+        const factorial = (n) => {
+            if (n <= 1) {
+              return 1;
+            } else {
+              return n * factorial(n - 1);
+            }
+        };
+        
+        const fibonacci = (n) => {
+            if (n <= 1) {
+              return n;
+            } else {
+              return fibonacci(n - 1) + fibonacci(n - 2);
+            }
+        };
+        
+        const num1 = parseInt(prompt("Enter a number for factorial calculation: "));
+        console.log(`Factorial of ${num1}: `, factorial(num1));
+        
+        const num2 = parseInt(prompt("Enter a number for fibonacci calculation: "));
+        console.log(`Fibonacci of ${num2}: `, fibonacci(num2));
+        
+        const add = (a, b) => a + b;
+        const subtract = (a, b) => a - b;
+        const multiply = (a, b) => a * b;
+        const divide = (a, b) => (b !== 0 ? a / b : "Division by zero is not allowed");
+        
+        const num1Calc = parseFloat(prompt("Enter the first number: "));
+        const num2Calc = parseFloat(prompt("Enter the second number: "));
+        const operation = prompt("Enter operation (+, -, *, /): ");
+        
+        let result;
+        switch (operation) {
+            case '+':
+                result = add(num1Calc, num2Calc);
+                break;
+            case '-':
+                result = subtract(num1Calc, num2Calc);
+                break;
+            case '*':
+                result = multiply(num1Calc, num2Calc);
+                break;
+            case '/':
+                result = divide(num1Calc, num2Calc);
+                break;
+            default:
+                result = "Invalid operation!";
+        }
+        
+        console.log(`Result: ${result}`);
+    </script>
+</body>
+</html>

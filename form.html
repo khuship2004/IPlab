@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<style>
+.message {
+    padding: 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+.contact-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #000;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+.contact-form input, .contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.contact-form button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.contact-form button:hover {
+    background-color: #218838;
+}
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+</style>
+</head>
+<body>
+<div class="contact-form">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <label for="email">Gmail:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your Gmail address">
+        <span id="emailError" class="error"></span>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Enter subject">
+        <span id="subjectError" class="error"></span>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+        <span id="messageError" class="error"></span>
+
+        <!-- New Password Fields -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <span id="passwordError" class="error"></span>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+        <span id="confirmPasswordError" class="error"></span>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Clear previous error messages
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('subjectError').textContent = '';
+    document.getElementById('messageError').textContent = '';
+    document.getElementById('passwordError').textContent = '';
+    document.getElementById('confirmPasswordError').textContent = '';
+
+    // Get form values
+    let email = document.getElementById('email').value.trim();
+    let subject = document.getElementById('subject').value.trim();
+    let message = document.getElementById('message').value.trim();
+    let password = document.getElementById('password').value.trim();
+    let confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+    let isValid = true;
+
+    // Validate email
+    if (!email) {
+        isValid = false;
+        document.getElementById('emailError').textContent = 'Gmail is required.';
+    } else if (!email.endsWith('@gmail.com')) {
+        isValid = false;
+        document.getElementById('emailError').textContent = 'Please enter a valid Gmail address.';
+    }
+
+    // Validate subject
+    if (!subject) {
+        isValid = false;
+        document.getElementById('subjectError').textContent = 'Subject is required.';
+    }
+
+    // Validate message
+    if (!message) {
+        isValid = false;
+        document.getElementById('messageError').textContent = 'Message is required.';
+    }
+
+    // Validate password
+    if (!password) {
+        isValid = false;
+        document.getElementById('passwordError').textContent = 'Password is required.';
+    }
+
+    // Validate confirm password
+    if (!confirmPassword) {
+        isValid = false;
+        document.getElementById('confirmPasswordError').textContent = 'Please confirm your password.';
+    } else if (password !== confirmPassword) {
+        isValid = false;
+        document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+    }
+
+    // If all fields are valid, show a success message
+    if (isValid) {
+        alert('Form submitted successfully!');
+    }
+});
+</script>
+</body>
+</html>

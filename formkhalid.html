@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<title>Contact Us</title>
+<style>
+.message {
+padding: 10px;
+}
+body {
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+.contact-form {
+background: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0px 0px 10px 0px #000;
+max-width: 500px;
+margin: 0 auto;
+}
+.contact-form h2 {
+margin-bottom: 20px;
+}
+.contact-form label {
+display: block;
+margin-bottom: 5px;
+margin-left: 5px;
+}
+.contact-form input, .contact-form textarea {
+width: calc(100% - 20px);
+padding: 10px;
+margin-bottom: 10px;
+margin-right: 0;
+border: 1px solid #ccc;
+border-radius: 5px;
+margin-left: 5px;
+}
+.contact-form button {
+background-color: #28a745;
+color: #fff;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+border-radius: 5px;
+}
+.contact-form button:hover {
+background-color: #218838;
+}
+.error {
+color: red;
+font-size: 0.9em;
+}
+input {
+width: calc(100% - 20px);
+}
+</style>
+</head>
+<body>
+<div class="contact-form">
+<h2>Contact Us</h2>
+<form id="contactForm">
+<label for="email">Gmail:</label>
+<input type="email" id="email" name="email" placeholder="Enter your Gmail address">
+<span id="emailError" class="error"></span>
+<label for="subject">Subject:</label>
+<input type="text" id="subject" name="subject" placeholder="Enter subject">
+<span id="subjectError" class="error"></span>
+<label for="message">Message:</label>
+<textarea id="message" name="message" rows="5"
+placeholder="Enter your message"></textarea>
+<span id="messageError" class="error"></span>
+<button type="submit">Submit</button>
+</form>
+</div>
+<script>
+document.getElementById('contactForm').addEventListener('submit',
+function(event) {
+event.preventDefault();
+document.getElementById('emailError').textContent = '';
+document.getElementById('subjectError').textContent = '';
+document.getElementById('messageError').textContent = '';
+let email = document.getElementById('email').value.trim();
+let subject = document.getElementById('subject').value.trim();
+let message = document.getElementById('message').value.trim();
+let isValid = true;
+if (!email) {
+isValid = false;
+document.getElementById('emailError').textContent = 'Gmail is required.';
+} else if (!email.endsWith('@gmail.com')) {
+isValid = false;
+document.getElementById('emailError').textContent = 'Please enter a valid Gmail address.';
+}
+if (!subject) {
+isValid = false;
+document.getElementById('subjectError').textContent = 'Subject is required.';
+}
+if (!message) {
+isValid = false;
+document.getElementById('messageError').textContent = 'Message is required.';
+}
+if (isValid) {
+alert('Form submitted successfully!');
+}
+});
+</script>
+</body>
+
