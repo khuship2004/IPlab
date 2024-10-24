@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow Functions - Calculations</title>
+  
+</head>
+<body>
+
+  <h1>Arrow Functions - Calculations</h1>
+
+  <!-- Input for Factorial Calculation -->
+  <h2>Factorial Calculation</h2>
+  <input type="number" id="factorial-input" placeholder="Enter a number">
+  <button onclick="calculateFactorial()">Calculate Factorial</button>
+  <div id="factorial-output" class="output"></div>
+
+  <!-- Input for Fibonacci Calculation -->
+  <h2>Fibonacci Calculation</h2>
+  <input type="number" id="fibonacci-input" placeholder="Enter a number">
+  <button onclick="calculateFibonacci()">Calculate Fibonacci</button>
+  <div id="fibonacci-output" class="output"></div>
+
+  <!-- Inputs for Basic Arithmetic -->
+  <h2>Basic Arithmetic</h2>
+  <input type="number" id="num1" placeholder="Number 1">
+  <input type="number" id="num2" placeholder="Number 2">
+  <button onclick="performArithmetic()">Calculate Arithmetic Operations</button>
+  <div id="arithmetic-output" class="output"></div>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Arrow function for Factorial
+    const factorial = (n) => {
+      if (n === 0 || n === 1) return 1;
+      return n * factorial(n - 1);
+    };
+
+    // Arrow function for Fibonacci
+    const fibonacci = (num) => {
+      if (num <= 1) return num;
+      return fibonacci(num - 1) + fibonacci(num - 2);
+    };
+
+    // Arrow functions for Arithmetic Operations
+    const add = (a, b) => a + b;
+    const subtract = (a, b) => a - b;
+    const multiply = (a, b) => a * b;
+    const divide = (a, b) => b !== 0 ? a / b : 'Cannot divide by zero';
+
+    // Function to calculate Factorial and display result
+    function calculateFactorial() {
+      const num = parseInt(document.getElementById('factorial-input').value);
+      const result = factorial(num);
+      document.getElementById('factorial-output').textContent = `Factorial of ${num} is ${result}`;
+    }
+
+    // Function to calculate Fibonacci and display result
+    function calculateFibonacci() {
+      const num = parseInt(document.getElementById('fibonacci-input').value);
+      const result = fibonacci(num);
+      document.getElementById('fibonacci-output').textContent = "Fibonacci of ${num} is ${result}";
+    }
+
+    // Function to perform basic arithmetic operations
+    function performArithmetic() {
+      const num1 = parseInt(document.getElementById('num1').value);
+      const num2 = parseInt(document.getElementById('num2').value);
+
+      const sum = add(num1, num2);
+      const diff = subtract(num1, num2);
+      const product = multiply(num1, num2);
+      const quotient = divide(num1, num2);
+
+      document.getElementById('arithmetic-output').innerHTML = `
+        Sum: ${sum} <br>
+        Difference: ${diff} <br>
+        Product: ${product} <br>
+        Quotient: ${quotient}
+      `;
+    }
+  </script>
+  
+</body>
+</html>

@@ -3,61 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run JavaScript</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Check the console for output</h1>
+    <label for="factorial">Factorial</label>
+    <input type="number" id="factorial-input" name="factorial-input" placeholder="Enter a number">
+    <button id="factorialBtn" onclick="fact()">Calculate Factorial</button>
+    <div class="output" id="factorial-output"></div>
+
+    <label for="fibonacci">fibonacci</label>
+    <input type="number" id="fibonacci-input" name="fibonacci-input" placeholder="Enter a number">
+    <button id="fibonacciBtn" onclick="calculateFibonacci()">Calculate fibonacci</button>
+    <div class="output" id="fibonacci"></div>
+
+    <label for="Arithmetic">arithmetic</label>
+    <input type="number" id="arithmetic-input1" name="arithmetic-input1" placeholder="Enter a number">
+    <input type="number" id="arithmetic-input2" name="arithmetic-input2" placeholder="Enter a number">
+    <button id="arithmeticBtn" onclick="arith()">Calculate arithmetic</button>
+    <div class="output" id="arithmetic-output"></div>
+
     <script>
-        const factorial = (n) => {
-            if (n <= 1) {
-              return 1;
-            } else {
-              return n * factorial(n - 1);
-            }
-        };
-        
-        const fibonacci = (n) => {
-            if (n <= 1) {
-              return n;
-            } else {
-              return fibonacci(n - 1) + fibonacci(n - 2);
-            }
-        };
-        
-        const num1 = parseInt(prompt("Enter a number for factorial calculation: "));
-        console.log(`Factorial of ${num1}: `, factorial(num1));
-        
-        const num2 = parseInt(prompt("Enter a number for fibonacci calculation: "));
-        console.log(`Fibonacci of ${num2}: `, fibonacci(num2));
-        
-        const add = (a, b) => a + b;
-        const subtract = (a, b) => a - b;
-        const multiply = (a, b) => a * b;
-        const divide = (a, b) => (b !== 0 ? a / b : "Division by zero is not allowed");
-        
-        const num1Calc = parseFloat(prompt("Enter the first number: "));
-        const num2Calc = parseFloat(prompt("Enter the second number: "));
-        const operation = prompt("Enter operation (+, -, *, /): ");
-        
-        let result;
-        switch (operation) {
-            case '+':
-                result = add(num1Calc, num2Calc);
-                break;
-            case '-':
-                result = subtract(num1Calc, num2Calc);
-                break;
-            case '*':
-                result = multiply(num1Calc, num2Calc);
-                break;
-            case '/':
-                result = divide(num1Calc, num2Calc);
-                break;
-            default:
-                result = "Invalid operation!";
+        const factorial = (n)=>{
+           if (n===0||n===1) return 1;
+           return n*factorial(n-1); 
         }
-        
-        console.log(`Result: ${result}`);
+        const fibo = (n)=>{
+            if(n<=1) return n;
+            return fibo(n-1) + fibo(n-2);
+        }
+        const add = (a,b) => a+b;
+        const sub = (a,b) => a-b;
+        const mul = (a,b) => a*b;
+        const div = (a,b) => b!==0?a/b: "not defined";
+
+        function fact(){
+            const f1 = parseInt(document.getElementById('factorial-input').value);
+            const result = factorial(f1);
+            document.getElementById('factorial-output').textContent = `Factorial is ${result}`
+
+        }
+
+        function calculateFibonacci(){
+            const f2 = parseInt(document.getElementById('fibonacci-input').value);
+            const result = fibo(f2);
+             document.getElementById('fibonacci-output').textContent = `fibo is ${result}`
+
+        }
+
+        function arith(){
+            const f3 = parseInt(document.getElementById('arithmetic-input1').value);
+            const f4 = parseInt(document.getElementById('arithmetic-input2').value);
+            const sum = add(f3,f4);
+            const dif = sub(f3,f4);
+            const pro = mul(f3,f4);
+            const divide = div(f3,f4);
+             document.getElementById('arithmetic-output').innerHTML = `
+             Sum: ${sum} <br>
+             sub: ${dif} <br>
+             pro: ${pro}<br>
+             divi: ${divide}
+             `;
+        }
+            
     </script>
 </body>
+
 </html>

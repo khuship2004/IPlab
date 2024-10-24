@@ -22,7 +22,7 @@ function* countGenerator() {
   }
   
   const counter = countGenerator();
-  console.log("Generator Function:")
+  console.log(`Generator Function:`);
   console.log(counter.next().value); 
   console.log(counter.next().value); 
   console.log(counter.next().done); 

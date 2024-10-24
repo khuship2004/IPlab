@@ -1,67 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>DOM Manipulation</title>
-  <style>
-    .highlight {
-      color: blue;
-      font-weight: bold;
-      background-color: #6de125;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM & CSS Manipulation</title>
+  <link rel="stylesheet" href=".css">
 </head>
 <body>
-  <div id="container">
-    <p class="intro">Hi, I am Shreya Kamath.</p>
-  </div>
-  
-  <button id="addButton">Add New Element</button>
-  <button id="delButton">Delete Element</button>
 
+  <!-- Main Content -->
+  <div class="container">
+    <h1 id="main-heading">Welcome to the DOM Manipulation Demo</h1>
+    <p id="description">Click the button below to change the text and style dynamically.</p>
+
+    <button id="changeContentBtn">Change Content & Style</button>
+    <button id="resetBtn">Reset Content & Style</button>
+</div>
+
+  <!-- JavaScript Code for DOM and CSS Manipulation -->
   <script>
-    const container = document.getElementById("container");
+    const changeContentBtn = document.getElementById('changeContentBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const heading = document.getElementById('main-heading');
+    const description = document.getElementById('description');
 
-    // Creating a new element
-    const age = document.createElement("p");
-    age.textContent = "I am 19 years old.";
-    container.appendChild(age);
+    // Function to change content and style
+    changeContentBtn.addEventListener('click', () => {
+      // Change HTML content
+      heading.textContent = "You've changed the content!";
+      description.innerHTML = "<strong>Great!</strong> You just manipulated the DOM and applied some CSS.";
 
-    // Removing the initial paragraph
-    const initialPara = container.querySelector(".intro");
-    container.removeChild(initialPara);
+      // Change CSS styles dynamically
+      heading.style.color = "#ff6347"; // Tomato color
+      heading.style.fontSize = "3rem";
+      heading.style.textTransform = "uppercase";
 
-    // // Replacing the paragraph
-    const replacedPara = document.createElement("p");
-    replacedPara.textContent = "I am Shreya Kamath and I'm 19 years old.";
-    container.replaceChild(replacedPara, age);
+      description.style.backgroundColor = "#f0e68c"; // Light khaki background
+      description.style.padding = "10px";
+      description.style.borderRadius = "5px";
 
-    // CSS manipulation using querySelector
-    const replacedWithCSS = container.querySelector("p");
-    replacedWithCSS.classList.add("highlight");
+      changeContentBtn.style.backgroundColor = "#4CAF50"; // Green button
+      changeContentBtn.style.color = "#fff";
+    });
 
-    // Adding background color to the paragraph
-    // replacedWithCSS.style.backgroundColor = "lightyellow";
+    // Reset to original content and style
+    resetBtn.addEventListener('click', () => {
+      // Reset content
+      heading.textContent = "Welcome to the DOM Manipulation Demo";
+      description.textContent = "Click the button below to change the text and style dynamically.";
 
-    // Function to add and delete a new element
-    function addNewElement() {
-      const newPara = document.createElement("p");
-      newPara.textContent = "I am a Third Year Engineering Student.";
-      container.appendChild(newPara);
-    }
-    function delElement() {
-      const lastPara = container.querySelector("p:last-child");
-      if (lastPara) {
-        container.removeChild(lastPara);
-      }
-    }
-    // Adding event listener to the button
-    const addButton = document.getElementById("addButton");
-    addButton.addEventListener("click", addNewElement);
+      // Reset CSS styles
+      heading.style.color = "#333";
+      heading.style.fontSize = "2rem";
+      heading.style.textTransform = "none";
 
-    // Create a delete button
-    const delButton = document.getElementById("delButton");
-    delButton.addEventListener("click", delElement);
+      description.style.backgroundColor = "transparent";
+      description.style.padding = "0";
+      description.style.borderRadius = "0";
 
+      changeContentBtn.style.backgroundColor = "#008CBA"; // Default blue button
+      changeContentBtn.style.color = "#fff";
+    });
   </script>
+
 </body>
 </html>

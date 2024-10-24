@@ -10,6 +10,7 @@ body {
 h1.title {
     font-size: 2.5rem;
     color: #333333; /* HEX code for dark text */
+    animation: slideIn 1s ease-out; /* Added slide-in animation */
 }
 
 p.subtitle {
@@ -66,10 +67,6 @@ p.subtitle {
         transform: translateX(0);
         opacity: 1;
     }
-}
-
-.intro {
-    animation: slideIn 1s ease-out; /* Slide-in animation for intro paragraph */
 }
 
 /* Translation Text */

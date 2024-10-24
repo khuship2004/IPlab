@@ -1,15 +1,23 @@
-function addNumbers(){
-    let n = 0;
-    return{
-        next : function(){
-            n= n+10;
-            return { value:n , done:false};
-        }
-    };
+import React, {useState,useEffect} from 'react';
+function App () {
+    const [firstName, setFirstName] = useState('Khushi');
+    const [lastName, setLastName] = useState('Punjabi');
+    const [fullName, setFullName] = useState('');
+
+    useEffect (()=>{
+        setFullName(`${firstName},${lastName}`)
+            } ,[firstName,lastName]); 
+            return(
+                <><><><><h1>React Hooks</h1>
+                    <label>Enter Name:</label>
+                    <input type='text'
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}></input></>
+                    <label>Enter Last Name:</label></><input type='text'
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}></input>
+                        </><p>Full Name: {fullName}</p></>
+            );
 }
 
-const nIterators = addNumbers();
-    for(let i=0;i < 5; i++ ){
-        const answer = nIterators.next();
-        console.log(answer.value);
-    }
+export default App;
