@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eaf2f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 70%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.student-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.student-info p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #34495e;
+}
+
+table td {
+    color: #34495e;
+}
+
+.result-row {
+    text-align: center;
+    background-color: #f0f4f7;
+    font-size: 18px;
+    color: #16a085;
+    padding: 10px;
+}
+
+.result-row strong {
+    font-weight: bold;
+    color: #16a085;
+}
+
+.result {
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+}
